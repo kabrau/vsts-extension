@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
     "id": "color-form-control",
-    "version": "0.3.0",
-    "name": "Color picklist control",
-    "description": "Add custom colors and labels for picklist fields.",
+    "version": "0.4.0",
+    "name": "Color picklist control 4",
+    "description": "Add custom fields.",
     "publisher": "marcelocabralghilardi",
     "icons": {
         "default": "img/logo.png"
