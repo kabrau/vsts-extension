@@ -26,20 +26,20 @@
     },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/Microsoft/vsts-extension-color-control"
+        "uri": "https://github.com/kabrau/vsts-extension"
     },
     "links": {
         "learn": {
-            "uri": "https://github.com/Microsoft/vsts-extension-color-control/blob/master/README.md"
+            "uri": "https://github.com/kabrau/vsts-extension/blob/master/README.md"
         },
         "support": {
-            "uri": "https://github.com/Microsoft/vsts-extension-color-control"
+            "uri": "https://github.com/kabrau/vsts-extension"
         },
         "repository": {
-            "uri": "https://github.com/Microsoft/vsts-extension-color-control"
+            "uri": "https://github.com/kabrau/vsts-extension"
         },
         "issues": {
-            "uri": "https://github.com/Microsoft/vsts-extension-color-control/issues"
+            "uri": "https://github.com/kabrau/vsts-extension/issues"
         }
     },
     "files": [
