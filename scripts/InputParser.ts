@@ -30,7 +30,7 @@ export class InputParser {
      *       }
      * @throws Will throw an {string} error if allowedValues are not specified.
      */
-    public static getOptions(inputs: IDictionaryStringTo<string>, allowedValues: string[]): IOption[] {
+    public static getOptions(inputs: IDictionaryStringTo<string>, allowedValues: string[], helpText: string): IOption[] {
         if (allowedValues && allowedValues.length) {
             let colors: string[] = [];
             let inputColors: string[] = [];
@@ -45,7 +45,7 @@ export class InputParser {
 
             return InputParser._buildOptions(allowedValues, colors, labels);
         } else {
-            throw ("The backing field does not have allowed values 4.");
+            throw ("The backing field does not have allowed values 4."+helpText);
         }
     }
     /**

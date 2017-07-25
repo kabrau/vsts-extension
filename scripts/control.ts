@@ -59,7 +59,7 @@ export class Controller {
                         if (typeof (currentValue) === 'number') {
                             allowedValues = allowedValues.sort((a, b) => Number(a) - Number(b));
                         }
-                        let options = InputParser.getOptions(this._inputs, allowedValues);
+                        let options = InputParser.getOptions(this._inputs, allowedValues, "l2");
                         this._model = new Model(options, String(currentValue));
                         this._view = new colorControl(this._model, (val) => {
                             //when value changes by clicking rows

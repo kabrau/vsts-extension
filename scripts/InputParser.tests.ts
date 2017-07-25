@@ -24,7 +24,7 @@ describe("InputParser", () => {
     });
 
     it("returns an array of interfaces", () => {
-        expect(InputParser.getOptions(bestCaseDict, bestCaseValues)).to.be.deep.equal([
+        expect(InputParser.getOptions(bestCaseDict, bestCaseValues, "l14")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" },
             { value: "2", color: "orange", label: "High" },
             { value: "3", color: "yellow", label: "Medium" },
@@ -37,7 +37,7 @@ describe("InputParser", () => {
             "Colors": "",
             "Values": "1",
             "Labels": "Critical"
-        }, ["1"])).to.be.deep.equal([
+        }, ["1"], "l15")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" }]);
     });
 
@@ -47,7 +47,7 @@ describe("InputParser", () => {
             "Colors": "",
             "Values": "1;2;3;4",
             "Labels": ""
-        }, ["1", "2", "3", "4"])).to.be.deep.equal([
+        }, ["1", "2", "3", "4"], "l16")).to.be.deep.equal([
             { value: "1", color: "red", label: "" },
             { value: "2", color: "orange", label: "" },
             { value: "3", color: "yellow", label: "" },
@@ -60,7 +60,7 @@ describe("InputParser", () => {
             "Colors": "red;orange;yellow;blue",
             "Values": "",
             "Labels": "Critical;High;Medium"
-        }, [])).throw("The backing field does not have allowed values 3.");
+        }, [], "l18")).throw("The backing field does not have allowed values 3.");
     });
 
     it("returns options with empty strings as labels if less labels than values are provided", ()=>{
@@ -69,7 +69,7 @@ describe("InputParser", () => {
             "Colors": "red;orange;yellow;blue",
             "Values": "1;2;3;4",
             "Labels": "High;Medium;Low"
-        }, ["1", "2", "3", "4"])).to.be.deep.equal([
+        }, ["1", "2", "3", "4"], "l17")).to.be.deep.equal([
             { value: "1", color: "red", label: "High" },
             { value: "2", color: "orange", label: "Medium" },
             { value: "3", color: "yellow", label: "Low" },
@@ -82,7 +82,7 @@ describe("InputParser", () => {
             "Colors": "red;orange",
             "Values": "1;2;3;4",
             "Labels": "Critical;High;Medium;Low"
-        }, ["1", "2", "3", "4"])).to.be.deep.equal([
+        }, ["1", "2", "3", "4"], "l19")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" },
             { value: "2", color: "orange", label: "High" },
             { value: "3", color: "yellow", label: "Medium" },
@@ -96,7 +96,7 @@ describe("InputParser", () => {
             "Colors": "red;orange;yellow;blue",
             "Values": "1;2;3;4",
             "Labels": "Critical;High;Medium;Low;Very Low"
-        }, ["1", "2", "3", "4"])).to.be.deep.equal([
+        }, ["1", "2", "3", "4"], "l20")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" },
             { value: "2", color: "orange", label: "High" },
             { value: "3", color: "yellow", label: "Medium" },
@@ -109,7 +109,7 @@ describe("InputParser", () => {
             "Colors": "red;orange;yellow;blue;magenta;deep-blue",
             "Values": "1;2;3;4",
             "Labels": "Critical;High;Medium;Low;Very Low"
-        }, ["1", "2", "3", "4"])).to.be.deep.equal([
+        }, ["1", "2", "3", "4"], "l21")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" },
             { value: "2", color: "orange", label: "High" },
             { value: "3", color: "yellow", label: "Medium" },
@@ -122,7 +122,7 @@ describe("InputParser", () => {
             "Colors": "red;orange;yellow;blue",
             "Values": "1;2;3;4",
             "Labels": "Critical;;;Low"
-        }, ["1", "2", "3", "4"])).to.be.deep.equal([
+        }, ["1", "2", "3", "4"], "l22")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" },
             { value: "2", color: "orange", label: "" },
             { value: "3", color: "yellow", label: "" },
@@ -135,7 +135,7 @@ describe("InputParser", () => {
             "Colors": "red;;yellow;blue",
             "Values": "1;2;3;4",
             "Labels": "Critical;High;Medium;Low"
-        }, ["1", "2", "3", "4"])).to.be.deep.equal([
+        }, ["1", "2", "3", "4"], "l23")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" },
             { value: "2", color: "", label: "High" },
             { value: "3", color: "yellow", label: "Medium" },
@@ -148,7 +148,7 @@ describe("InputParser", () => {
             "Colors": "red",
             "Values": "1",
             "Labels": "Critical"
-        }, ["1"])).to.be.deep.equal([
+        }, ["1"], "l24")).to.be.deep.equal([
             { value: "1", color: "red", label: "Critical" },
         ]);
     });
