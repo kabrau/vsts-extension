@@ -1,8 +1,8 @@
 {
     "manifestVersion": 1,
     "id": "color-form-control",
-    "version": "0.4.0",
-    "name": "Color picklist control 4",
+    "version": "0.5.0",
+    "name": "Color picklist control 5",
     "description": "Add custom fields.",
     "publisher": "marcelocabralghilardi",
     "icons": {
