@@ -60,7 +60,7 @@ describe("InputParser", () => {
             "Colors": "red;orange;yellow;blue",
             "Values": "",
             "Labels": "Critical;High;Medium"
-        }, [])).throw("The backing field does not have allowed values.");
+        }, [])).throw("The backing field does not have allowed values 3.");
     });
 
     it("returns options with empty strings as labels if less labels than values are provided", ()=>{

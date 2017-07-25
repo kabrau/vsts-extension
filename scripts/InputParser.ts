@@ -45,7 +45,7 @@ export class InputParser {
 
             return InputParser._buildOptions(allowedValues, colors, labels);
         } else {
-            throw ("The backing field does not have allowed values.");
+            throw ("The backing field does not have allowed values 4.");
         }
     }
     /**
