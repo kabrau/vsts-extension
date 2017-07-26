@@ -1,9 +1,13 @@
 {
     "compilerOptions": {
         "module": "amd",
-        "sourceMap": false
+        "sourceMap": false,
+        "rootDir": "./scripts",
+        "moduleResolution": "node"
     },
-    "exclude": [
-        "node_modules"
-    ]
+    "filesGlob": [
+        "./scripts/**/*.ts",
+        "!**/*.tests.ts"
+    ],
+    "files": []
 }

@@ -2,11 +2,12 @@
     grunt.initConfig({
         ts: {
             build: {
-                tsconfig: true
+                tsconfig: true,
+                "outDir": "./build"
             },
             buildTest: {
-                tsconfig: true,
-                "outDir": "./test/scripts",
+                tsconfig: "testTsConfig.json",
+                "outDir": "./test/",
                 src: ["./scripts/**/*.tests.ts"]
             },
             options: {
@@ -15,22 +16,22 @@
         },
         exec: {
             package_dev: {
-                command: "tfx extension create --manifest-globs vss-extension.json --overrides-file configs/dev.json",
+                command: "tfx extension create --rev-version --manifests vss-extension.json --overrides-file configs/dev.json",
                 stdout: true,
                 stderr: true
             },
             package_release: {
-                command: "tfx extension create --manifest-globs vss-extension.json --overrides-file configs/release.json",
+                command: "tfx extension create --rev-version --manifests vss-extension.json --overrides-file configs/release.json",
                 stdout: true,
                 stderr: true
             },
             publish_dev: {
-                command: "tfx extension publish --service-url https://marketplace.visualstudio.com --manifest-globs vss-extension.json --overrides-file configs/dev.json",
+                command: "tfx extension publish --service-url https://marketplace.visualstudio.com --manifests vss-extension.json --overrides-file configs/dev.json",
                 stdout: true,
                 stderr: true
             },
             publish_release: {
-                command: "tfx extension publish --service-url https://marketplace.visualstudio.com --manifest-globs vss-extension.json --overrides-file configs/release.json",
+                command: "tfx extension publish --service-url https://marketplace.visualstudio.com --manifests vss-extension.json --overrides-file configs/release.json",
                 stdout: true,
                 stderr: true
             }
@@ -41,13 +42,13 @@
                     expand: true, 
                     flatten: true, 
                     src: ["node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"], 
-                    dest: "dist",
+                    dest: "build",
                     filter: "isFile" 
                 }]
             }
         },
-        
-        clean: ["scripts/**/*.js", "*.vsix", "dist", "test"],
+
+        clean: ["scripts/**/*.js", "*.vsix", "build", "test"],
 
         karma: {
             unit: {

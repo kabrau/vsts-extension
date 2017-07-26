@@ -1,45 +1,33 @@
-> Currently only available on TFS 2017 or later and Visual Studio Team Services. 
+# vsts-extension-ts-seed-simple #
 
-![Work item form](img/form.png)
+Describe your extension here. This description will be shown in the marketplace. You can use *Markdown*.
 
-# Help your team identify how critical certain items are
-![Priority](img/priority.png)
+https://github.com/cschleiden/vsts-extension-ts-seed-simple
 
-# Create a visual language for fields
-![Business Value](img/businessValue.png)
 
-# How to get started
-## Visual Studio Team Services
+### Usage ###
 
-Navigate to your work item form customization page and add a color picklist control.
+1. Clone the repository
+1. `npm install` to install required local dependencies
+2. `npm install -g grunt` to install a global copy of grunt (unless it's already installed)
+2. `grunt` to build and package the application
 
-![Layout Customization](img/layoutCustomization.png)
+#### Grunt ####
 
-Edit the control so it can use the right field, labels, and colors.
+Three basic `grunt` tasks are defined:
 
-![Configuration](img/configuration.png)
+* `build` - Compiles TS files in `scripts` folder
+* `package-dev` - Builds the development version of the vsix package
+* `package-release` - Builds the release version of the vsix package
+* `publish-dev` - Publishes the development version of the extension to the marketplace using `tfx-cli`
+* `publish-release` - Publishes the release version of the extension to the marketplace using `tfx-cli`
 
-## TFS On-Premise 
+Note: To avoid `tfx` prompting for your token when publishing, login in beforehand using `tfx login` and the service uri of ` https://marketplace.visualstudio.com`.
 
-We recommend TFS 2015 RC2 and higher when running this extension.
+#### Including framework modules ####
 
-[Learn more](https://github.com/kabrau/vsts-extension/blob/master/README.md) about how to customize the color control directly on XML.
+The VSTS framework is setup to initalize the requirejs AMD loader, so just use `import Foo = require("foo")` to include framework modules.
 
-# Source code 
+#### VS Code ####
 
-The [source](https://github.com/kabrau/vsts-extension) for this extension can be found on Github - feel free to take, fork and extend. 
-
-You can also learn how to build your own custom control extension for the work item form [here](https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/custom-control). 
-
-# Contributors
-
-We thank the following contributor(s) for this extension: Alison Chow, Maria McLaughlin and Nelson Troncoso Aldas. 
-
-# Feedback 
-
-We need your feedback! Here are some ways to connect with us:
-
-* Add a review below.
-* Report issues in [GitHub](https://github.com/kabrau/vsts-extension/issues).
-
-> Microsoft DevLabs is an outlet for experiments from Microsoft, experiments that represent some of the latest ideas around developer tools. Solutions in this category are designed for broad usage, and you are encouraged to use and provide feedback on them; however, these extensions are not supported nor are any commitments made as to their longevity.
+The included `.vscode` config allows you to open and build the project using [VS Code](https://code.visualstudio.com/).

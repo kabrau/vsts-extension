@@ -1,9 +1,10 @@
 {
     "manifestVersion": 1,
-    "id": "color-form-control",
-    "version": "0.8.0",
-    "name": "Color picklist control 7",
-    "description": "Add custom fields.",
+    "id": "vsts-extensions-many-control",
+    "version": "0.1.3",
+    "name": "Many controls",
+    "scopes": [ "vso.work", "vso.work_write" ],
+    "description": "Describe your extension.",
     "publisher": "marcelocabralghilardi",
     "icons": {
         "default": "img/logo.png"
@@ -14,23 +15,25 @@
         }
     ],
     "tags": [
-        "Work Item",
-        "Work Item control",
-        "Pick list",
-        "Color coded"
+        "Work Items",
+        "Extensions",
+        "Work Item Control",
+        "Samples"
     ],
     "content": {
         "details": {
             "path": "details.md"
         }
     },
-    "repository": {
-        "type": "git",
-        "uri": "https://github.com/kabrau/vsts-extension"
-    },
     "links": {
+        "home": {
+            "uri": "https://github.com/kabrau/vsts-extension"
+        },
+        "getstarted": {
+            "uri": "https://github.com/kabrau/vsts-extension"
+        },
         "learn": {
-            "uri": "https://github.com/kabrau/vsts-extension/blob/master/README.md"
+            "uri": "https://github.com/kabrau/vsts-extension"
         },
         "support": {
             "uri": "https://github.com/kabrau/vsts-extension"
@@ -39,8 +42,12 @@
             "uri": "https://github.com/kabrau/vsts-extension"
         },
         "issues": {
-            "uri": "https://github.com/kabrau/vsts-extension/issues"
+            "uri": "https://github.com/kabrau/vsts-extension"
         }
+    },
+    "branding": {
+        "color": "rgb(220, 235, 252)",
+        "theme": "light"
     },
     "files": [
         {
@@ -48,19 +55,15 @@
             "addressable": true
         },
         {
-            "path": "dist",
+            "path": "build",
             "addressable": true
         },
         {
-            "path": "scripts",
+            "path": "url.html",
             "addressable": true
         },
         {
-            "path": "styles",
-            "addressable": true
-        },
-        {
-            "path": "index.html",
+            "path": "css",
             "addressable": true
         }
     ],
@@ -69,24 +72,23 @@
     ],
     "contributions": [
         {
-            "id": "color-control-contribution",
+            "id": "url-form-control",
             "type": "ms.vss-work-web.work-item-form-control",
-            "description": "Add custom colors and labels for picklist fields.",
+            "description": "A work item form control that allows to open a url.",
             "targets": [
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "name": "Color picklist control",
-                "uri": "index.html",
-                "height": 90,
-                "inputs": [
-                    {
-                        "id": "FieldName",
-                        "name": "Select the field for this control. Example: Priority",
-                        "description": "The field must have allowed values.",
+                "name": "Url control",
+                "uri": "url.html",
+                "height": 25,
+				"inputs": [
+				    {
+                        "id":"FieldName",
+                        "name": "Select the field for this control. Use a hidden field",
                         "type": "WorkItemField",
                         "properties": {
-                            "workItemFieldTypes": ["String", "Integer"]
+                            "workItemFieldTypes": ["String", "PlainText","Integer"]
                         },
                         "validation": {
                             "dataType": "String",
@@ -94,22 +96,34 @@
                         }
                     },
                     {
-                        "id": "Labels",
-                        "name": "Choose labels for each value. Example: Critical;Normal;Low",
+                        "id":"UrlMacro",
+                        "name": "Write a URL macro, where {0} is will replaced by the value of the field, e.g. http://myserver/viewTicket?id={0}",
+                        "validation": {
+                            "dataType": "String",
+                            "isRequired": true
+                        }
+                    },
+				    {
+                        "id":"FieldNameText",
+                        "name": "Select the field for text this control. Use a hidden field, e.g ClientName",
+                        "type": "WorkItemField",
+                        "properties": {
+                            "workItemFieldTypes": ["String", "PlainText","Integer"]
+                        },
                         "validation": {
                             "dataType": "String",
                             "isRequired": false
                         }
                     },
                     {
-                        "id": "Colors",
-                        "name": "Choose colors for each value. Example: Red;Blue;Green",
+                        "id":"TextMacro",
+                        "name": "Write a Text macro, where {0}{1} is will replaced by the value of the fields (1 and 2), e.g. {0}-{1}",
                         "validation": {
                             "dataType": "String",
                             "isRequired": false
                         }
-                    }
-                ]
+                    }                    
+				]
             }
         }
     ]
