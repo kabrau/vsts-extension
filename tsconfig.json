@@ -9,5 +9,7 @@
         "./scripts/**/*.ts",
         "!**/*.tests.ts"
     ],
-    "files": []
+    "files": [
+        "scripts/appLink.ts"
+    ]
 }

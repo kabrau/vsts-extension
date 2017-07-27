@@ -1,10 +1,10 @@
 {
     "manifestVersion": 1,
-    "id": "vsts-extensions-many-control",
-    "version": "0.1.3",
-    "name": "Many controls",
+    "id": "vsts-extension-form-field-link",
+    "version": "0.1.1",
+    "name": "Link Control",
     "scopes": [ "vso.work", "vso.work_write" ],
-    "description": "Describe your extension.",
+    "description": "Add a link using value of fields.",
     "publisher": "marcelocabralghilardi",
     "icons": {
         "default": "img/logo.png"
@@ -18,6 +18,8 @@
         "Work Items",
         "Extensions",
         "Work Item Control",
+        "url",
+        "link",
         "Samples"
     ],
     "content": {
@@ -27,22 +29,22 @@
     },
     "links": {
         "home": {
-            "uri": "https://github.com/kabrau/vsts-extension"
+            "uri": "https://github.com/kabrau/vsts-extension-form-field-link"
         },
         "getstarted": {
-            "uri": "https://github.com/kabrau/vsts-extension"
+            "uri": "https://github.com/kabrau/vsts-extension-form-field-link"
         },
         "learn": {
-            "uri": "https://github.com/kabrau/vsts-extension"
+            "uri": "https://github.com/kabrau/vsts-extension-form-field-link"
         },
         "support": {
-            "uri": "https://github.com/kabrau/vsts-extension"
+            "uri": "https://github.com/kabrau/vsts-extension-form-field-link"
         },
         "repository": {
-            "uri": "https://github.com/kabrau/vsts-extension"
+            "uri": "https://github.com/kabrau/vsts-extension-form-field-link"
         },
         "issues": {
-            "uri": "https://github.com/kabrau/vsts-extension"
+            "uri": "https://github.com/kabrau/vsts-extension-form-field-link"
         }
     },
     "branding": {
@@ -59,7 +61,7 @@
             "addressable": true
         },
         {
-            "path": "url.html",
+            "path": "link.html",
             "addressable": true
         },
         {
@@ -72,16 +74,16 @@
     ],
     "contributions": [
         {
-            "id": "url-form-control",
+            "id": "link-form-control",
             "type": "ms.vss-work-web.work-item-form-control",
-            "description": "A work item form control that allows to open a url.",
+            "description": "A work item form control to open a url.",
             "targets": [
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "name": "Url control",
-                "uri": "url.html",
-                "height": 25,
+                "name": "Link control",
+                "uri": "link.html",
+                "height": 23,
 				"inputs": [
 				    {
                         "id":"FieldName",
