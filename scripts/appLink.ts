@@ -34,6 +34,7 @@ VSS.register(VSS.getContribution().id, function () {
                                     }
 
                                     //$("#events").append($("<div/>").text("onLoaded 2 - " + JSON.stringify(value)));
+                                    $("#content").empty();
                                     $("#content").append($('<a href="javascript:void(0)" class="aurl" >'+textLink+'</a>'));
                                     $('.aurl').on("click",function(){
                                         var url = _urlMacro.replace("{0}",value[_fieldName]);
